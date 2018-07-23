@@ -54,7 +54,7 @@ public class GoogleAuthorizeUtil {
 	 public static Credential authorize() throws IOException {
 	        // Load client secrets.
 	        InputStream in =
-	        GoogleSheetAPI.class.getResourceAsStream("/credentials.json");
+	        		GoogleAuthorizeUtil.class.getResourceAsStream("/credentials.json");
 	        GoogleClientSecrets clientSecrets = GoogleClientSecrets.load(JSON_FACTORY, new InputStreamReader(in));
 	        // Build flow and trigger user authorization request.
 	        GoogleAuthorizationCodeFlow flow = new GoogleAuthorizationCodeFlow.Builder(HTTP_TRANSPORT, JSON_FACTORY, clientSecrets, SCOPES)
@@ -68,8 +68,8 @@ public class GoogleAuthorizeUtil {
 	 public static void main(String... args) throws IOException, GeneralSecurityException {
 	        // Build a new authorized API client service.
 	        final NetHttpTransport HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
-	        final String spreadsheetId = "15_-mGA4FZIbthKY9Db02f6-vTAv5s3qG1qi6JPwWUeM";
-	        final String range = "Sheet1!A2:10";
+	        final String spreadsheetId = "15_-mGA4FZIbthKY9Db02f6-vTAv5s3qG1qi6JPwWUeM";// id of the sheet 
+	        final String range = "Sheet1!A2:12";
 	        Sheets service = new Sheets.Builder(HTTP_TRANSPORT, JSON_FACTORY, authorize())
 	                .setApplicationName(APPLICATION_NAME)
 	                .build();
@@ -87,7 +87,7 @@ public class GoogleAuthorizeUtil {
 	               	String range1 = "Sheet1!B"+count;
 	                ValueRange body = new ValueRange()
 	                        .setValues(Arrays.asList(
-	                          Arrays.asList(row.get(0))));
+	                          Arrays.asList("false")));
 	               
 	                System.out.println(body);
 	                
