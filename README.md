@@ -16,7 +16,6 @@
     compile 'com.google.apis:google-api-services-sheets:v4-rev516-1.23.0'
  
 
-NOTE : save a copy of credentials.json locally 
 
 reference : https://developers.google.com/sheets/api/quickstart/java
     
